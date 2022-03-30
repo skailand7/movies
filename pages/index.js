@@ -1,5 +1,4 @@
 import React from "react";
-import arrBatman from "./arrBatman";
 import Cover from "../components/Cover";
 import Item from "../components/Item";
 import MyApp from "./_app.js";
@@ -41,38 +40,34 @@ const Index = () => {
   const [search, setSearch] = React.useState("red");
   const [selection, setSelection] = React.useState("MostPopularMovies");
 
-  let title = "";
   const arrMovie = [...movie];
   arrMovie.length = 10;
+  const rnd = Math.floor(Math.random() * 5);
 
-  const searchButton = (name) => {
-    title = name;
-  };
+  React.useEffect(() => {
+    async function fetchData() {
+      const response = await fetch(
+        `https://imdb-api.com/en/API/${selection}/k_8ervbnor`
+        //`https://imdb-api.com/en/API/MostPopularMovies/k_duhu3l50`
+        //`https://imdb-api.com/en/API/SearchMovie/k_duhu3l50/${search}`
+        //"www.google.com"
+      );
+      const data = await response.json();
+      const item = data.items;
+      //const item = data.results;
 
-  React.useEffect(async () => {
-    const response = await fetch(
-      `https://imdb-api.com/en/API/${selection}/k_8ervbnor`
-      //`https://imdb-api.com/en/API/MostPopularMovies/k_duhu3l50`
-      //`https://imdb-api.com/en/API/SearchMovie/k_duhu3l50/${search}`
-      //"www.google.com"
-    );
-    const data = await response.json();
-    const item = data.items;
-    //const item = data.results;
-    setMovie(item);
+      setMovie(item);
+    }
+    fetchData();
   }, [selection]);
 
   return (
-    <div>
-      <SearchBar
-        searchButton={searchButton}
-        setSearch={setSearch}
-        title={title}
-      />
-      <Cover array={mostPopular[0]} />
-      {console.log(arrBatman[0].contentRating)}
+    <div className="bg-gray-900">
+      <SearchBar setSearch={setSearch} search={search} />
+      {movie.length > 0 ? <Cover array={arrMovie[rnd]} /> : <p>Cargando</p>}
 
       <NavList setSelection={setSelection} />
+
       <ItemList>
         {arrMovie.map((item) => {
           // {mostPopular.map((item) => {

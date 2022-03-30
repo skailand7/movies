@@ -1,8 +1,15 @@
+import Image from "next/image";
 const Similars = ({ item }) => {
   return (
     <div className="flex flex-col items-center bg-gray-800 rounded-xl text-white w-48">
       <div className="">
-        <img src={item.image} className="h-64 w-48 rounded-t-xl" />
+        <Image
+          width="192"
+          height="256"
+          src={item.image}
+          alt="img"
+          className="h-64 w-48 rounded-t-xl"
+        />
       </div>
       <div className="flex flex-col items-center justify-center">
         <p className="inline-block w-[250px] text-center py-2 font-bold">

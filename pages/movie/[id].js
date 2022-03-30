@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import { Router, useRouter } from "next/router";
+import Image from "next/image";
+import { useRouter } from "next/router";
 import SkeletonIndex from "../../components/SkeletonItem/SkeletonIndex";
-import Arr from "../arrBatman";
 import Genres from "../../components/movie/Genres";
 import Cast from "../../components/movie/Cast";
 import Similars from "../../components/movie/Similars";
@@ -13,17 +13,20 @@ const Movie = () => {
   const router = useRouter();
   const { id } = router.query;
 
-  React.useEffect(async () => {
-    const response = await fetch(
-      `https://imdb-api.com/en/API/Title/k_8ervbnor/${id}`
-      //`https://imdb-api.com/en/API/Title/k_duhu3l50/${id}`
-    );
-    const data = await response.json();
+  React.useEffect(() => {
+    async function fetchData() {
+      const response = await fetch(
+        `https://imdb-api.com/en/API/Title/k_8ervbnor/${id}`
+        //`https://imdb-api.com/en/API/Title/k_duhu3l50/${id}`
+      );
+      const data = await response.json();
 
-    const item = [];
-    item.push(data);
-    setArr(item);
-    setLoading(false);
+      const item = [];
+      item.push(data);
+      setArr(item);
+      setLoading(false);
+    }
+    fetchData();
   }, []);
 
   if (arr) {
@@ -37,10 +40,10 @@ const Movie = () => {
       <div className="bg-gray-900">
         <div>
           <div className="relative">
-            <div className="">
-              <img src={arr[0].image} />
+            <div className="h-[620px] bg-gray-900">
+              <Image width="500" height="620" alt="img" src={arr[0].image} />
               <div className="w-8 h-8 flex items-center justify-center fixed top-4 left-4 bg-gray-500/50 rounded-full z-10">
-                <Link href="/">
+                <Link href="/" passHref>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6 text-gray-400 "
@@ -157,7 +160,7 @@ const Movie = () => {
               })}
             </section>
           </div>
-          <div>
+          <div className="">
             <p className="text-center text-white">{arr[0].companies}</p>
           </div>
         </div>

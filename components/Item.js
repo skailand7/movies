@@ -1,14 +1,23 @@
 import Link from "next/link";
+import Image from "next/image";
 const Item = ({ item }) => {
   return (
-    <Link href={`/movie/${item.id}`}>
+    <Link href={`/movie/${item.id}`} passHref>
       <div className="h-auto bg-gray-900 flex rounded-xl items-center">
-        <img src={item.image} className="h-32 w-32 object-cover rounded-xl" />
+        <Image
+          src={item.image}
+          width="120"
+          height="120"
+          alt="img"
+          className="h-32 w-32 object-cover rounded-xl"
+        />
         <div className="w-3/5 text-white flex flex-col space-y-4 pl-4">
           <div className="w-full">
             <p className="font-bold text-xl">
               {item.title}
-              <span className="text-sm text-gray-500"> ({item.year})</span>
+              {item.year ? (
+                <span className="text-sm text-gray-500"> {item.year} </span>
+              ) : null}
             </p>
             <div className="flex items-center space-x-2">
               {item.imDbRating > 0 ? (
@@ -41,10 +50,13 @@ const Item = ({ item }) => {
                 <p>{item.imDbRating}</p>
               ) : (
                 <div className="mt-4 flex items-center space-x-4">
-                  <p className="border-2 border-gray-500 rounded-xl p-1 px-2">
-                    {item.contentRating}
-                  </p>{" "}
-                  <p>{item.runtimeStr}</p>
+                  {item.contentRating ? (
+                    <p className="border-2 border-gray-500 rounded-xl p-1 px-2"></p>
+                  ) : null}
+
+                  <p>
+                    {item.runtimeStr ? item.contentRating : item.description}
+                  </p>
                 </div>
               )}
             </div>

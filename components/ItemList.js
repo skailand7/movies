@@ -1,6 +1,8 @@
+import SkeletonSearch from "./SkeletonSearch/SkeletonSearch";
+
 const ItemList = ({ children }) => {
   return (
-    <section className="bg-red-700  h-auto w-full space-y-4 p-4 bg-black">
+    <section className=" h-auto w-full space-y-4 p-4 bg-gray-800">
       {children}
     </section>
   );

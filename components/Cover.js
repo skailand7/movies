@@ -1,4 +1,6 @@
+import Image from "next/image";
 const Cover = ({ array }) => {
+  console.log("Arrrrrr", array);
   const newImage = array.image.replace(
     "UX128_CR0,3,128,176_AL_.jpg",
     "Ratio0.6751_AL_.jpg"
@@ -11,10 +13,13 @@ const Cover = ({ array }) => {
   return (
     <section>
       <div className="w-full h-[450px] relative">
-        <img
-          src={newImage}
+        <Image
+          src={`${newImage}`}
+          width={500}
+          height={500}
+          alt="img"
           className="w-full h-full object-cover brightness-[.35]"
-        ></img>
+        ></Image>
         <div className="absolute p-4 w-full bottom-0 bg-black/50 space-y-8">
           <div>
             <p className="text-white font-bold text-3xl">
