@@ -4,13 +4,16 @@ const Item = ({ item }) => {
   return (
     <Link href={`/movie/${item.id}`} passHref>
       <div className="h-auto bg-gray-900 flex rounded-xl items-center">
-        <Image
-          src={item.image}
-          width="120"
-          height="120"
-          alt="img"
-          className="h-32 w-32 object-cover rounded-xl"
-        />
+        <div className="flex items-center h-auto w-auto rounded-xl bg-gray-800">
+          <Image
+            src={item.image}
+            width="120"
+            height="120"
+            alt="img"
+            className="h-32 w-32 object-cover rounded-xl"
+          />
+        </div>
+
         <div className="w-3/5 text-white flex flex-col space-y-4 pl-4">
           <div className="w-full">
             <p className="font-bold text-xl">

@@ -11,8 +11,8 @@ const Similars = ({ item }) => {
           className="h-64 w-48 rounded-t-xl"
         />
       </div>
-      <div className="flex flex-col items-center justify-center">
-        <p className="inline-block w-[250px] text-center py-2 font-bold">
+      <div className="flex flex-col items-center justify-center pb-1">
+        <p className="inline-block w-[200px] text-center px-4 py-2 font-bold">
           {item.title}
         </p>
         <div className="flex">

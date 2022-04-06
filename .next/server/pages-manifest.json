@@ -1,9 +1,5 @@
 {
-  "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-  "/SearchMovie/[id]": "pages/SearchMovie/[id].html",
   "/_app": "pages/_app.js",
-  "/": "pages/index.html",
-  "/movie/[id]": "pages/movie/[id].html",
-  "/404": "pages/404.html"
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js"
 }

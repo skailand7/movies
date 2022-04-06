@@ -1,6 +1,6 @@
 const withConfig = require("next-config");
 module.exports = {
   images: {
-    domains: ["imdb-api.com"],
+    domains: ["m.media-amazon.com", "imdb-api.com"],
   },
 };

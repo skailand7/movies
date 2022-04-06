@@ -1,6 +1,5 @@
 import Image from "next/image";
 const Cover = ({ array }) => {
-  console.log("Arrrrrr", array);
   const newImage = array.image.replace(
     "UX128_CR0,3,128,176_AL_.jpg",
     "Ratio0.6751_AL_.jpg"

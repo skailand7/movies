@@ -5,6 +5,8 @@ import MyApp from "./_app.js";
 import NavList from "../components/NavList";
 import ItemList from "../components/ItemList";
 import SearchBar from "../components/SearchBar";
+import SkeletonCover from "../components/SkeletonCover/SkeletonCover";
+import SkeletonSearch from "../components/SkeletonSearch/SkeletonSearch";
 
 const mostPopular = [
   {
@@ -47,8 +49,8 @@ const Index = () => {
   React.useEffect(() => {
     async function fetchData() {
       const response = await fetch(
-        `https://imdb-api.com/en/API/${selection}/k_8ervbnor`
-        //`https://imdb-api.com/en/API/MostPopularMovies/k_duhu3l50`
+        //`https://imdb-api.com/en/API/${selection}/k_8ervbnor`
+        `https://imdb-api.com/en/API/${selection}/k_duhu3l50`
         //`https://imdb-api.com/en/API/SearchMovie/k_duhu3l50/${search}`
         //"www.google.com"
       );
@@ -64,15 +66,18 @@ const Index = () => {
   return (
     <div className="bg-gray-900">
       <SearchBar setSearch={setSearch} search={search} />
-      {movie.length > 0 ? <Cover array={arrMovie[rnd]} /> : <p>Cargando</p>}
+      {movie.length > 0 ? <Cover array={arrMovie[rnd]} /> : <SkeletonCover />}
 
       <NavList setSelection={setSelection} />
 
       <ItemList>
-        {arrMovie.map((item) => {
-          // {mostPopular.map((item) => {
-          return <Item item={item} key={item.id} />;
-        })}
+        {movie.length > 0 ? (
+          arrMovie.map((item) => {
+            return <Item item={item} key={item.id} />;
+          })
+        ) : (
+          <SkeletonSearch />
+        )}
       </ItemList>
     </div>
   );

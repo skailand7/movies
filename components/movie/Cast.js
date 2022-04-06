@@ -4,7 +4,7 @@ const Cast = ({ item }) => {
     <div className="w-[250px] bg-gray-800 rounded-full">
       <div className="flex items-center">
         <div className="w-[80px] bg-white rounded-full flex items-center">
-          <Image
+          <img
             width="80"
             height="80"
             src={item.image}

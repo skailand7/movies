@@ -1,28 +1,12 @@
 import Link from "next/link";
 const SearchBar = ({ setSearch, search }) => {
   return (
-    <div className="flex w-full justify-center bg-gray-900 px-1">
-      <div className="flex items-center text-white">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth="2"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M7 16l-4-4m0 0l4-4m-4 4h18"
-          />
-        </svg>
-      </div>
-      <div className="flex p-2 w-full rounded-full border bg-gray-900 border-red-700 space-x-2">
+    <div className="flex w-full justify-center bg-gray-900 px-2 py-4 space-x-4">
+      <div className="flex p-2 w-full rounded-full border bg-gray-900 border-gray-700 space-x-2">
         <Link href={`/SearchMovie/${search}`} passHref>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 text-white bg-gray-900"
+            className="h-6 w-6 text-gray-300 bg-gray-900"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -45,7 +29,7 @@ const SearchBar = ({ setSearch, search }) => {
       <div className="flex items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5 text-white"
+          className="h-8 w-8 text-gray-400"
           viewBox="0 0 20 20"
           fill="currentColor"
         >

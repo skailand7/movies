@@ -12,12 +12,13 @@ const Movie = () => {
   const [loading, setLoading] = React.useState(true);
   const router = useRouter();
   const { id } = router.query;
-
+  const [see, setSee] = React.useState();
+  const [trailer, setTrailer] = React.useState();
   React.useEffect(() => {
     async function fetchData() {
       const response = await fetch(
-        `https://imdb-api.com/en/API/Title/k_8ervbnor/${id}`
-        //`https://imdb-api.com/en/API/Title/k_duhu3l50/${id}`
+        `https://imdb-api.com/en/API/Title/k_8ervbnor/${id}/Trailer`
+        // `https://imdb-api.com/en/API/Title/k_duhu3l50/${id}/Trailer`
       );
       const data = await response.json();
 
@@ -29,8 +30,21 @@ const Movie = () => {
     fetchData();
   }, []);
 
+  React.useEffect(() => {
+    async function fetchTrailer() {
+      const response = await fetch(
+        `https://imdb-api.com/en/API/YouTubeTrailer/k_8ervbnor0/${id}`
+      );
+      const data = await response.json();
+      console.log(data);
+      const valueData = data.videoId;
+      setTrailer(valueData);
+      console.log(valueData);
+    }
+    fetchTrailer();
+  }, []);
+
   if (arr) {
-    console.log("Arr:", arr);
     const genresArr = arr[0].genres.split(",");
     const actorList = arr[0].actorList;
     const similars = arr[0].similars;
@@ -41,7 +55,7 @@ const Movie = () => {
         <div>
           <div className="relative">
             <div className="h-[620px] bg-gray-900">
-              <Image width="500" height="620" alt="img" src={arr[0].image} />
+              <Image width="500" height="720" alt="img" src={arr[0].image} />
               <div className="w-8 h-8 flex items-center justify-center fixed top-4 left-4 bg-gray-500/50 rounded-full z-10">
                 <Link href="/" passHref>
                   <svg
@@ -88,7 +102,7 @@ const Movie = () => {
               </div>
             </div>
           </div>
-          <div className="flex justify-center mb-6 font-semibold text-white space-x-4">
+          <div className="flex justify-center mt-0 mb-6 font-semibold text-white space-x-4">
             <div className="flex items-center space-x-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -151,6 +165,25 @@ const Movie = () => {
           <div className="mt-8 w-full h-auto px-8 -mt-[1px] text-white space-y-4">
             <p className="mt-8 font-bold  text-xl">Synopsis</p>
             <article>{arr[0].plot}</article>
+
+            <p
+              className="mt-4 font-semibold text-lg text-cyan-500"
+              onClick={() => setSee(true)}
+            >
+              See Trailer
+            </p>
+            {see ? (
+              <div className="w-full h-auto" id="see-trailer">
+                <iframe
+                  src={`https://www.youtube.com/embed/${trailer}`}
+                  className="w-full h-64"
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            ) : null}
           </div>
           <div className="px-8 space-y-4 mb-16 mt-8">
             <p className="text-white font-bold text-2xl">Recommend</p>
