@@ -8,39 +8,11 @@ import SearchBar from "../components/SearchBar";
 import SkeletonCover from "../components/SkeletonCover/SkeletonCover";
 import SkeletonSearch from "../components/SkeletonSearch/SkeletonSearch";
 
-const mostPopular = [
-  {
-    id: "tt1877830",
-    rank: "1",
-    rankUpDown: "0",
-    title: "The Batman",
-    fullTitle: "The Batman (2022)",
-    year: "2022",
-    image:
-      "https://m.media-amazon.com/images/M/MV5BMDdmMTBiNTYtMDIzNi00NGVlLWIzMDYtZTk3MTQ3NGQxZGEwXkEyXkFqcGdeQXVyMzMwOTU5MDk@._V1_UX128_CR0,3,128,176_AL_.jpg",
-    crew: "Matt Reeves (dir.), Robert Pattinson, Zoë Kravitz",
-    imDbRating: "8.4",
-    imDbRatingCount: "278245",
-  },
-  {
-    id: "tt2463208",
-    rank: "2",
-    rankUpDown: "0",
-    title: "The Adam Project",
-    fullTitle: "The Adam Project (2022)",
-    year: "2022",
-    image:
-      "https://m.media-amazon.com/images/M/MV5BOWM0YWMwMDQtMjE5NS00ZTIwLWE1NWEtODViMWZjMWI2OTU3XkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_UX128_CR0,3,128,176_AL_.jpg",
-    crew: "Shawn Levy (dir.), Ryan Reynolds, Walker Scobell",
-    imDbRating: "6.8",
-    imDbRatingCount: "95250",
-  },
-];
-
 const Index = () => {
   const [movie, setMovie] = React.useState([]);
   const [search, setSearch] = React.useState("red");
   const [selection, setSelection] = React.useState("MostPopularMovies");
+  let title = "";
 
   const arrMovie = [...movie];
   arrMovie.length = 10;

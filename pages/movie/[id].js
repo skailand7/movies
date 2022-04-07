@@ -33,13 +33,12 @@ const Movie = () => {
   React.useEffect(() => {
     async function fetchTrailer() {
       const response = await fetch(
-        `https://imdb-api.com/en/API/YouTubeTrailer/k_8ervbnor0/${id}`
+        `https://imdb-api.com/en/API/YouTubeTrailer/k_8ervbnor/${id}`
       );
       const data = await response.json();
       console.log(data);
       const valueData = data.videoId;
       setTrailer(valueData);
-      console.log(valueData);
     }
     fetchTrailer();
   }, []);
