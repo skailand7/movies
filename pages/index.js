@@ -10,9 +10,7 @@ import SkeletonSearch from "../components/SkeletonSearch/SkeletonSearch";
 
 const Index = () => {
   const [movie, setMovie] = React.useState([]);
-  const [search, setSearch] = React.useState("red");
   const [selection, setSelection] = React.useState("MostPopularMovies");
-  let title = "";
 
   const arrMovie = [...movie];
   arrMovie.length = 10;
@@ -37,7 +35,7 @@ const Index = () => {
 
   return (
     <div className="bg-gray-900">
-      <SearchBar setSearch={setSearch} search={search} />
+      <SearchBar />
       {movie.length > 0 ? <Cover array={arrMovie[rnd]} /> : <SkeletonCover />}
 
       <NavList setSelection={setSelection} />
@@ -51,6 +49,9 @@ const Index = () => {
           <SkeletonSearch />
         )}
       </ItemList>
+      <div className="w-full p-2 text-gray-500 font-semibold text-center">
+        <p>Made with tons of 💙 by Mikcode | 2022</p>
+      </div>
     </div>
   );
 };

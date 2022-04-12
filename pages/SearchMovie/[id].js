@@ -4,6 +4,7 @@ import Item from "../../components/Item";
 import SkeletonSearch from "../../components/SkeletonSearch/SkeletonSearch";
 import SearchBar from "../../components/SearchBar";
 import Link from "next/link";
+import { stringify } from "postcss";
 
 const Results = () => {
   const [searchedArr, setSearchedArr] = React.useState([]);
@@ -13,14 +14,21 @@ const Results = () => {
   const { id } = router.query;
   React.useEffect(() => {
     async function fetchData() {
-      const response = await fetch(
-        `https://imdb-api.com/en/API/SearchMovie/k_8ervbnor/${id}`
-        //`https://imdb-api.com/en/API/SearchMovie/k_duhu3l50/${id}`
-      );
-      const data = await response.json();
-      const items = data.results;
-      setSearchedArr(items);
-      setLoading(false);
+      if (id) {
+        const response = await fetch(
+          `https://imdb-api.com/en/API/SearchMovie/k_8ervbnor/${id}`
+          //`https://imdb-api.com/en/API/SearchMovie/k_duhu3l50/${id}`
+        );
+        const data = await response.json();
+        const items = data.results;
+        localStorage.setItem("searched", JSON.stringify(items));
+        setSearchedArr(items);
+        setLoading(false);
+      } else {
+        const gotItems = localStorage.getItem("searched");
+        setSearchedArr(JSON.parse(gotItems));
+        setLoading(false);
+      }
     }
     fetchData();
   }, []);

@@ -1,11 +1,17 @@
 import Link from "next/link";
 import React from "react";
 const SearchBar = () => {
-  const [state, setState] = React.useState("red");
+  const [state, setState] = React.useState("");
 
   return (
     <div className="flex w-full justify-center bg-gray-900 px-2 py-4 space-x-4">
       <div className="flex p-2 w-full rounded-full border bg-gray-900 border-gray-700 space-x-2">
+        <input
+          onChange={(e) => setState(e.target.value)}
+          id="search-bar"
+          placeholder="Search e.g movies or TV shows"
+          className="outline-none w-full px-4 text-gray-400 bg-gray-900"
+        />
         <Link href={`/SearchMovie/${state}`} passHref>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -22,12 +28,6 @@ const SearchBar = () => {
             />
           </svg>
         </Link>
-        <input
-          onChange={(e) => setState(e.target.value)}
-          id="search-bar"
-          placeholder="Search"
-          className="outline-none text-white bg-gray-900"
-        />
       </div>
       <div className="flex items-center">
         <svg

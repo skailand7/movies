@@ -4,6 +4,10 @@ const Cover = ({ array }) => {
     "UX128_CR0,3,128,176_AL_.jpg",
     "Ratio0.6751_AL_.jpg"
   );
+  newImage = newImage.replace(
+    "UX128_CR0,4,128,176_AL_.jpg",
+    "Ratio0.6751_AL_.jpg"
+  );
   function kFormatter(num) {
     return Math.abs(num) > 999
       ? Math.sign(num) * (Math.abs(num) / 1000).toFixed(0) + "K"
@@ -11,14 +15,15 @@ const Cover = ({ array }) => {
   }
   return (
     <section>
-      <div className="w-full h-[450px] relative">
-        <Image
-          src={`${newImage}`}
-          width={500}
-          height={500}
-          alt="img"
-          className="w-full h-full object-cover brightness-[.35]"
-        ></Image>
+      <div className="w-full h-[450px] lg:h-[550px] relative">
+        <div className="w-full h-full object-cover">
+          <Image
+            src={`${newImage}`}
+            alt="img"
+            layout="fill"
+            className="w-full h-full object-fit md:object-cover brightness-[.35]"
+          ></Image>
+        </div>
         <div className="absolute p-4 w-full bottom-0 bg-black/50 space-y-8">
           <div>
             <p className="text-white font-bold text-3xl">
