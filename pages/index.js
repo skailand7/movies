@@ -33,23 +33,25 @@ const Index = () => {
   }, [selection]);
 
   return (
-    <div className="bg-gray-900">
-      <SearchBar />
-      {movie.length > 0 ? <Cover array={arrMovie[rnd]} /> : <SkeletonCover />}
+    <div className="flex flex-col bg-gray-900 justify-center items-center">
+      <div className="w-full md:w-3/4">
+        <SearchBar />
+        {movie.length > 0 ? <Cover array={arrMovie[rnd]} /> : <SkeletonCover />}
 
-      <NavList setSelection={setSelection} />
+        <NavList selection={selection} setSelection={setSelection} />
 
-      <ItemList>
-        {movie.length > 0 ? (
-          arrMovie.map((item) => {
-            return <Item item={item} key={item.id} />;
-          })
-        ) : (
-          <SkeletonSearch />
-        )}
-      </ItemList>
-      <div className="w-full p-2 text-gray-500 font-semibold text-center">
-        <p>Made with tons of 💙 by Mikcode | 2022</p>
+        <ItemList>
+          {movie.length > 0 ? (
+            arrMovie.map((item) => {
+              return <Item item={item} key={item.id} />;
+            })
+          ) : (
+            <SkeletonSearch />
+          )}
+        </ItemList>
+        <div className="w-full p-2 text-gray-500 font-semibold text-center">
+          <p>Made with tons of 💙 by Mikcode | 2022</p>
+        </div>
       </div>
     </div>
   );

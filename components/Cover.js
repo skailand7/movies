@@ -16,6 +16,15 @@ const Cover = ({ array }) => {
   return (
     <section>
       <div className="w-full h-[450px] lg:h-[550px] relative">
+        <div className="hidden md:block absolute right-16 bottom-0 z-30">
+          <Image
+            width="200px"
+            height="300px"
+            alt="img"
+            src={newImage}
+            className="rounded-xl"
+          />
+        </div>
         <div className="w-full h-full object-cover">
           <Image
             src={`${newImage}`}
