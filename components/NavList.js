@@ -24,6 +24,7 @@ const NavList = ({ setSelection }) => {
             title={item.title}
             option={item.option}
             setSelection={setSelection}
+            key={item.title}
           />
         );
       })}
