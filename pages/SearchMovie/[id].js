@@ -55,7 +55,8 @@ const Results = () => {
             </svg>
           </Link>
           <p className="font-semibold text-xl">
-            Search Results ({searchedArr.length})
+            Search results for <span className="italic text-sky-600">{id}</span>{" "}
+            ({searchedArr.length})
           </p>
         </div>
         <div className="space-y-8 p-4">

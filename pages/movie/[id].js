@@ -36,7 +36,6 @@ const Movie = () => {
         `https://imdb-api.com/en/API/YouTubeTrailer/k_8ervbnor/${id}`
       );
       const data = await response.json();
-      console.log(data);
       const valueData = data.videoId;
       setTrailer(valueData);
     }
@@ -54,7 +53,21 @@ const Movie = () => {
         <div>
           <div className="relative">
             <div className="h-[620px] bg-gray-900">
-              <Image width="500" height="720" alt="img" src={arr[0].image} />
+              <Image
+                layout="fill"
+                objectFit="cover"
+                alt="img"
+                src={arr[0].image}
+              />
+              <div className="hidden md:block absolute right-16 bottom-0 z-30">
+                <Image
+                  width="200px"
+                  height="300px"
+                  alt="img"
+                  src={arr[0].image}
+                  className="rounded-xl"
+                />
+              </div>
               <div className="w-8 h-8 flex items-center justify-center fixed top-4 left-4 bg-gray-500/50 rounded-full z-10">
                 <Link href="/" passHref>
                   <svg

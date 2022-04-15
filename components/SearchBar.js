@@ -12,7 +12,10 @@ const SearchBar = () => {
           placeholder="Search e.g movies or TV shows"
           className="outline-none w-full px-4 text-gray-400 bg-gray-900"
         />
-        <Link href={`/SearchMovie/${state}`} passHref>
+        <Link
+          href={state ? `/SearchMovie/${state}` : `/error/NoSearch`}
+          passHref
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6 text-gray-300 bg-gray-900"

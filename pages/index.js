@@ -26,7 +26,6 @@ const Index = () => {
       );
       const data = await response.json();
       const item = data.items;
-      //const item = data.results;
 
       setMovie(item);
     }
