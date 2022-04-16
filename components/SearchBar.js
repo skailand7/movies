@@ -8,12 +8,12 @@ const SearchBar = () => {
       <p className="text-[#2496DD] text-2xl font-bold hidden md:block mr-4">
         Mik?Movies
       </p>
-      <div className="flex p-2 w-full rounded-full border bg-gray-900 border-gray-700 space-x-2">
+      <div className="flex p-2 w-full md:w-1/3 rounded-full border bg-gray-900 border-gray-700 space-x-2">
         <input
           onChange={(e) => setState(e.target.value)}
           id="search-bar"
           placeholder="Search e.g movies or TV shows"
-          className="outline-none w-full px-4 text-gray-400 bg-gray-900 md:w-1/3"
+          className="outline-none w-full px-4 text-gray-400 bg-gray-900 "
         />
         <Link
           href={state ? `/SearchMovie/${state}` : `/error/NoSearch`}
