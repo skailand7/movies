@@ -1,6 +1,7 @@
 const NavItem = ({ title, option, setSelection }) => {
   {
-    console.log(option);
+    console.log("option", option);
+    console.log("title", title);
   }
   return (
     <div
