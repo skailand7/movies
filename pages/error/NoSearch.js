@@ -8,6 +8,7 @@ const NoSearch = () => {
         width="350px"
         height="350px"
         src="https://cdn3.iconfinder.com/data/icons/robot-mascot-character-1/100/Blue_robot_v3_01_4-512.png"
+        alt="error"
       ></Image>
       <Link href="/">
         <a className="w-[150px] bg-[#2496DD] text-center text-lg outline-none text-white font-semibold px-4 py-3 rounded-full">

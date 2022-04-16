@@ -18,7 +18,6 @@ const Movie = () => {
     async function fetchData() {
       const response = await fetch(
         `https://imdb-api.com/en/API/Title/k_8ervbnor/${id}/Trailer`
-        // `https://imdb-api.com/en/API/Title/k_duhu3l50/${id}/Trailer`
       );
       const data = await response.json();
 

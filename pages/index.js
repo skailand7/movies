@@ -38,7 +38,7 @@ const Index = () => {
         <SearchBar />
         {movie.length > 0 ? <Cover array={arrMovie[rnd]} /> : <SkeletonCover />}
 
-        <NavList selection={selection} setSelection={setSelection} />
+        <NavList setSelection={setSelection} />
 
         <ItemList>
           {movie.length > 0 ? (
