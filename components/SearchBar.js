@@ -5,12 +5,15 @@ const SearchBar = () => {
 
   return (
     <div className="flex w-full justify-center bg-gray-900 px-2 py-4 space-x-4">
+      <p className="text-[#2496DD] text-2xl font-bold hidden md:block mr-4">
+        Mik?Movies
+      </p>
       <div className="flex p-2 w-full rounded-full border bg-gray-900 border-gray-700 space-x-2">
         <input
           onChange={(e) => setState(e.target.value)}
           id="search-bar"
           placeholder="Search e.g movies or TV shows"
-          className="outline-none w-full px-4 text-gray-400 bg-gray-900"
+          className="outline-none w-full px-4 text-gray-400 bg-gray-900 md:w-1/3"
         />
         <Link
           href={state ? `/SearchMovie/${state}` : `/error/NoSearch`}
