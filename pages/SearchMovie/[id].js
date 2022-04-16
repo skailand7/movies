@@ -39,7 +39,7 @@ const Results = () => {
         <div className="w-full md:w-3/4">
           <SearchBar />
         </div>
-        <section className="w-full md:w-3/4 h-screen overflow-y-auto bg-black text-white">
+        <section className=" h-screen overflow-y-auto bg-black text-white">
           <div className="px-4 py-2 flex space-x-4 items-center">
             <Link href="/" passHref>
               <svg
@@ -63,7 +63,7 @@ const Results = () => {
               {searchedArr.length})
             </p>
           </div>
-          <div className="space-y-8 p-4">
+          <div className="space-y-8 p-4 w-full md:w-3/4">
             {searchedArr.map((item) => {
               return <Item item={item} key={item.id} />;
             })}
