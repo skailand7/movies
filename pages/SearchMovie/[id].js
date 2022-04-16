@@ -36,9 +36,9 @@ const Results = () => {
   if (!loading) {
     return (
       <div className="flex flex-col bg-gray-900 justify-center items-center">
-        <section className="w-full md:w-3/4 h-screen overflow-y-auto bg-black text-white">
+        <section className="h-screen overflow-y-auto bg-black text-white">
           <SearchBar />
-          <div className="px-4 py-2 flex space-x-4 items-center">
+          <div className="w-full md:w-3/4  px-4 py-2 flex space-x-4 items-center">
             <Link href="/" passHref>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +61,7 @@ const Results = () => {
               {searchedArr.length})
             </p>
           </div>
-          <div className="space-y-8 p-4">
+          <div className="space-y-8 p-4 w-full md:w-3/4 ">
             {searchedArr.map((item) => {
               return <Item item={item} key={item.id} />;
             })}
