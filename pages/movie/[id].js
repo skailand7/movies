@@ -49,7 +49,7 @@ const Movie = () => {
 
     return (
       <div className="flex flex-col bg-gray-900 justify-center items-center">
-        <React.Fragment>
+        <div className="w-full md:w-3/4">
           <div>
             <div className="relative">
               <div className="h-[620px] bg-gray-900">
@@ -209,7 +209,7 @@ const Movie = () => {
               <p className="text-center text-white">{arr[0].companies}</p>
             </div>
           </div>
-        </React.Fragment>
+        </div>
       </div>
     );
   } else {
