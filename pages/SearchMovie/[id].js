@@ -36,7 +36,9 @@ const Results = () => {
   if (!loading) {
     return (
       <div className="flex flex-col bg-gray-900 justify-center items-center">
-        <SearchBar />
+        <div className="w-full md:w-3/4">
+          <SearchBar />
+        </div>
         <section className="w-full md:w-3/4 h-screen overflow-y-auto bg-black text-white">
           <div className="px-4 py-2 flex space-x-4 items-center">
             <Link href="/" passHref>
