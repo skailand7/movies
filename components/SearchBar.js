@@ -4,10 +4,25 @@ const SearchBar = () => {
   const [state, setState] = React.useState("");
 
   return (
-    <div className="flex w-full justify-center bg-gray-900 px-2 py-4 space-x-4">
-      <p className="text-[#2496DD] text-2xl font-bold hidden md:block mr-4">
-        Mik?Movies
-      </p>
+    <div className="flex w-full justify-between bg-gray-900 px-2 py-4 space-x-4">
+      <div className="flex items-center space-x-1 text-[#2496DD] text-2xl mr-4">
+        <p className=" font-bold hidden md:block">MikMovies</p>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"
+          />
+        </svg>
+      </div>
+
       <div className="flex p-2 w-full md:w-1/3 rounded-full border bg-gray-900 border-gray-700 space-x-2">
         <input
           onChange={(e) => setState(e.target.value)}
@@ -35,7 +50,7 @@ const SearchBar = () => {
           </svg>
         </Link>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center md:hidden">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-8 w-8 text-gray-400"

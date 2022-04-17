@@ -25,16 +25,20 @@ const Cover = ({ array }) => {
             className="rounded-xl"
           />
         </div>
+        <div className="bg-[#2496DD] rounded-xl origin-bottom -rotate-12 px-4 py-2 hidden md:block absolute right-[180px] bottom-[280px] z-30">
+          <p className="text-center font-bold text-white">Featured</p>
+        </div>
         <div className="w-full h-full object-cover">
           <Image
             src={`${newImage}`}
             alt="img"
             layout="fill"
+            objectFit="cover"
             className="w-full h-full object-fit md:object-cover brightness-[.35]"
           ></Image>
         </div>
         <div className="absolute p-4 w-full bottom-0 bg-black/50 space-y-8">
-          <div>
+          <div className="w-full md:w-1/2">
             <p className="text-white font-bold text-3xl">
               {array.title}
               <span className="text-gray-300 font-normal text-lg">
@@ -58,7 +62,7 @@ const Cover = ({ array }) => {
               </p>
             </div>
           </div>
-          <div>
+          <div className="w-full md:w-2/5">
             <p className="text-white text-xl font-bold">Cast:</p>
             <p className="text-white">{array.crew}</p>
           </div>

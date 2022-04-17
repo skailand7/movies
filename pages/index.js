@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import Cover from "../components/Cover";
 import Item from "../components/Item";
 import MyApp from "./_app.js";
@@ -33,27 +34,47 @@ const Index = () => {
   }, [selection]);
 
   return (
-    <div className="flex flex-col bg-gray-900 justify-center items-center">
-      <div className="w-full md:w-3/4">
-        <SearchBar />
-        {movie.length > 0 ? <Cover array={arrMovie[rnd]} /> : <SkeletonCover />}
-
-        <NavList setSelection={setSelection} />
-
-        <ItemList>
+    <>
+      <Head>
+        <title>MikMovies</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&display=swap"
+          rel="stylesheet"
+        ></link>
+      </Head>
+      <div className="font-montserrat flex flex-col bg-gray-900 justify-center items-center">
+        <div className="w-full md:w-3/4">
+          <SearchBar />
           {movie.length > 0 ? (
-            arrMovie.map((item) => {
-              return <Item item={item} key={item.id} />;
-            })
+            <Cover array={arrMovie[rnd]} />
           ) : (
-            <SkeletonSearch />
+            <SkeletonCover />
           )}
-        </ItemList>
-        <div className="w-full p-2 text-gray-500 font-semibold text-center">
-          <p>Made with tons of 💙 by Mikcode | 2022</p>
+
+          <NavList setSelection={setSelection} />
+
+          <ItemList>
+            {movie.length > 0 ? (
+              arrMovie.map((item) => {
+                return <Item item={item} key={item.id} />;
+              })
+            ) : (
+              <SkeletonSearch />
+            )}
+          </ItemList>
+          <div className="w-full p-2 text-gray-500 font-semibold text-center">
+            <p>Made with tons of 💙 by Mikcode | 2022</p>
+          </div>
         </div>
+        <style>
+          @import
+          url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&display=swap');
+        </style>
       </div>
-    </div>
+    </>
   );
 };
 
