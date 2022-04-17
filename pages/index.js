@@ -70,8 +70,9 @@ const Index = () => {
           </div>
         </div>
         <style>
-          @import
-          url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&display=swap");
+          @import url(
+          {`https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&display=swap`}
+          );
         </style>
       </div>
     </>
