@@ -36,6 +36,19 @@ const Results = () => {
   if (!loading) {
     return (
       <div className="flex flex-col bg-gray-900 justify-center items-center">
+        <Head>
+          <title>Your results!</title>
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&display=swap"
+            rel="stylesheet"
+          ></link>
+        </Head>
         <div className="w-full md:w-3/4">
           <SearchBar />
         </div>
@@ -69,6 +82,11 @@ const Results = () => {
             })}
           </div>
         </section>
+        <style>
+          @import url(
+          {`https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&display=swap`}
+          );
+        </style>
       </div>
     );
   } else {
