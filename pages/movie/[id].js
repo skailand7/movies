@@ -28,7 +28,7 @@ const Movie = () => {
       setLoading(false);
     }
     fetchData();
-  }, []);
+  }, [id]);
 
   React.useEffect(() => {
     async function fetchTrailer() {
@@ -73,6 +73,43 @@ const Movie = () => {
                   alt="img"
                   src={arr[0].image}
                 />
+                <div className="relative w-full">
+                  <div className="w-8 h-8 flex items-center justify-center fixed top-4 left-4 md:left-32 lg:left-56 bg-gray-500/50 rounded-full z-30">
+                    <Link href="/" passHref>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6 text-gray-400 "
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M15 19l-7-7 7-7"
+                        />
+                      </svg>
+                    </Link>
+                    <div className="w-8 h-8 flex items-center justify-center fixed top-4 right-4 md:right-32 lg:right-56 bg-gray-500/50 rounded-full z-30">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 text-gray-400"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
                 <div className="hidden md:block absolute right-16 bottom-0 z-30">
                   <Image
                     width="200px"
@@ -81,40 +118,6 @@ const Movie = () => {
                     src={arr[0].image}
                     className="rounded-xl"
                   />
-                </div>
-                <div className="w-8 h-8 flex items-center justify-center fixed top-4 left-4 bg-gray-500/50 rounded-full z-10">
-                  <Link href="/" passHref>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 text-gray-400 "
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M15 19l-7-7 7-7"
-                      />
-                    </svg>
-                  </Link>
-                </div>
-                <div className="w-8 h-8 flex items-center justify-center fixed top-4 right-4 bg-gray-500/50 rounded-full z-10">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-gray-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
-                    />
-                  </svg>
                 </div>
               </div>
               <div className="p-8 w-full h-screen absolute bottom-0 bg-gradient-to-t from-gray-900">
