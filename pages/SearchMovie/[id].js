@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/dist/shared/lib/head";
 import { useRouter } from "next/router";
 import Item from "../../components/Item";
 import SkeletonSearch from "../../components/SkeletonSearch/SkeletonSearch";
