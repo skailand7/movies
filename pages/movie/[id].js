@@ -17,6 +17,7 @@ const Movie = () => {
   const [trailer, setTrailer] = React.useState();
   React.useEffect(() => {
     async function fetchData() {
+      setLoading(true);
       const response = await fetch(
         `https://imdb-api.com/en/API/Title/k_8ervbnor/${id}/Trailer`
       );
@@ -42,7 +43,7 @@ const Movie = () => {
     fetchTrailer();
   }, []);
 
-  if (arr) {
+  if (!loading && arr) {
     const genresArr = arr[0].genres.split(",");
     const actorList = arr[0].actorList;
     const similars = arr[0].similars;

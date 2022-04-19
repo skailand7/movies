@@ -6,6 +6,10 @@ const arrSelection = [
     option: "MostPopularMovies",
   },
   {
+    title: "Series",
+    option: "MostPopularTVs",
+  },
+  {
     title: "Coming Soon",
     option: "ComingSoon",
   },

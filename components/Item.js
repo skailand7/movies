@@ -1,22 +1,27 @@
 import Link from "next/link";
 import Image from "next/image";
 const Item = ({ item }) => {
+  const title = item.title;
   return (
     <Link href={`/movie/${item.id}`} passHref>
       <div className="h-auto bg-gray-900 flex rounded-xl items-center">
-        <div className="flex items-center h-auto w-auto rounded-xl bg-gray-800">
+        <div className="flex items-center h-auto w-auto bg-gray-800">
           <Image
             src={item.image}
             width="120"
-            height="120"
+            height="140"
             alt="img"
-            className="h-32 w-32 object-cover rounded-xl"
+            className="h-32 w-32 object-cover rounded-l-xl"
           />
         </div>
 
-        <div className="w-3/5 text-white flex flex-col space-y-4 pl-4">
+        <div className="w-3/5 text-white flex flex-col md:space-y-8 pl-4">
           <div className="w-full">
-            <p className="font-bold text-xl">
+            <p
+              className={`font-bold ${
+                title.length > 15 ? "text-md" : "text-lg"
+              }`}
+            >
               {item.title}
               {item.year ? (
                 <span className="text-sm text-gray-500"> {item.year} </span>
@@ -54,17 +59,17 @@ const Item = ({ item }) => {
               ) : (
                 <div className="mt-4 flex items-center space-x-4">
                   {item.contentRating ? (
-                    <p className="border-2 border-gray-500 rounded-xl p-1 px-2"></p>
+                    <p className="border border-gray-500 rounded-xl px-1">
+                      {item.contentRating}
+                    </p>
                   ) : null}
 
-                  <p>
-                    {item.runtimeStr ? item.contentRating : item.description}
-                  </p>
+                  <p>{item.runtimeStr ? item.runtimeStr : item.description}</p>
                 </div>
               )}
             </div>
           </div>
-          <p>{item.crew}</p>
+          <p className="text-sm md:text-md">{item.crew}</p>
         </div>
       </div>
     </Link>

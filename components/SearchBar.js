@@ -5,11 +5,11 @@ const SearchBar = () => {
 
   return (
     <div className="flex w-full justify-between bg-gray-900 px-2 py-4 space-x-4">
-      <div className="flex items-center space-x-1 text-[#2496DD] text-2xl mr-4">
+      <div className="flex items-center space-x-1 text-[#2496DD] text-2xl ml-4 md:ml-0">
         <p className=" font-bold hidden md:block">MikMovies</p>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
+          className="h-8 w-8"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
